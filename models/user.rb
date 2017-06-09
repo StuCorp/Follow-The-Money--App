@@ -2,11 +2,49 @@ require_relative '../db/sql_runner'
 
 class User
 
-attr_accessor :id, :name
+  attr_accessor :id, :name
 
-def initialize(options)
-  @id = options['id'].to_i if options['id'] 
-  @name = options['name']  
-end
+  def initialize(options)
+    @id = options['id'].to_i if options['id'] 
+    @name = options['name']  
+  end
+
+  def save()
+    sql = "INSERT INTO users (name) VALUES ('#{@name}') RETURNING *;"
+    result = SqlRunner.run(sql)
+    @id = result[0]['id'].to_i  
+  end
+
+  def update()
+    sql = "UPDATE users SET (name) = ('#{@name}') WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM users WHERE id = #{@id};"
+    SqlRunner.run(sql)  
+  end
+
+  def self.find_all
+    sql = "SELECT * FROM users;"
+    results = SqlRunner.run(sql)
+    return results.map {|result| User.new(result)}
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM users WHERE id = #{id};"
+    result = SqlRunner.run(sql)[0]
+    return User.new(result)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM users;"
+    SqlRunner.run(sql)  
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM users WHERE id = #{id};"
+    SqlRunner.run(sql)  
+  end
 
 end
