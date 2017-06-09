@@ -1,13 +1,15 @@
-DROP TABLE transactions
+DROP TABLE if exists transactions;
+DROP TABLE if exists users;
+DROP TABLE if exists tags;
 
 CREATE TABLE users (
-id = SERIAL8 PRIMARY KEY,
-name = VARCHAR(255)
+id SERIAL8 PRIMARY KEY,
+name VARCHAR(255)
 );
 
 CREATE TABLE tags (
-id = SERIAL8 PRIMARY KEY,
-name = VARCHAR(255)
+id SERIAL8 PRIMARY KEY,
+name VARCHAR(255)
 );
 
 CREATE TABLE transactions (
