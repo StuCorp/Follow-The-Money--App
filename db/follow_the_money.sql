@@ -16,6 +16,6 @@ CREATE TABLE transactions (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
   cost INT,
-  user_id INT REFERENCES users(id),
-  tag_id INT REFERENCES tags(id)
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  tag_id INT REFERENCES tags(id) ON DELETE CASCADE
 );

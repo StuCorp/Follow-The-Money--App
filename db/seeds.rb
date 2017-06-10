@@ -1,6 +1,7 @@
 require_relative '../models/user'
 require_relative '../models/tag'
 require_relative '../models/transaction'
+require_relative '../models/transaction_info'
 require 'pry-byebug' 
 
 User.delete_all()

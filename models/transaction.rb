@@ -51,6 +51,13 @@ class Transaction
     SqlRunner.run(sql)  
   end
 
+  def self.full_info
+    sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id;"
+    results = SqlRunner.run(sql)
+    return results.map {|result| }
+    
+  end
+
 
 
 end
