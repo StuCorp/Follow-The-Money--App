@@ -13,9 +13,14 @@ end
 
 get '/transactions/new' do
   @tags = Tag.find_all()
+  @users = User.find_all()
+
   erb(:"transactions/new")
 end
 
 post '/transactions' do
+  @transaction = Transaction.new(params)
+  @transaction.save()
+  erb(:"transactions/transaction_made")
 
 end
