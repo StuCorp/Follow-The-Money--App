@@ -30,7 +30,19 @@ get '/transactions/:id' do
   erb(:"transactions/show")
 end
 
-# get '/transactions/:id/edit' do
-#   @transactions = Transaction.find(params[:id])
-#   erb(:"transactions/edit")
-# end
+get '/transactions/:id/edit' do
+  @transaction = Transaction.find(params[:id])
+  @tags = Tag.find_all()
+  @users = User.find_all()
+  erb(:"transactions/edit")
+end
+
+post '/transactions/:id' do
+  @transaction = Transaction.find(params[:id])
+  @transaction.update_params(params)
+  redirect to '/transactions'
+end
+
+
+
+

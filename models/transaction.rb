@@ -24,6 +24,15 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def update_params(params)
+    @name = params['name']
+    @cost = params['cost']
+    @user_id = params['user_id'].to_i
+    @tag_id = params['tag_id'].to_i
+    sql = "UPDATE transactions SET (name, cost, user_id, tag_id) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}) WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
+
   def delete()
     sql = "DELETE FROM transactions WHERE id = #{@id};"
     SqlRunner.run(sql)  
@@ -55,6 +64,11 @@ class Transaction
     sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id;"
     results = SqlRunner.run(sql)
     return results.map {|result| }
+  end
+
+  def get_user()
+    sql = "SELECT users.name FROM users WHERE id = #{@user_id};"
+    return SqlRunner.run(sql).first['name']
     
   end
 
