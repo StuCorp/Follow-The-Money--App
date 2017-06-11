@@ -1,0 +1,9 @@
+<h1>All tags!</h1>
+
+
+<%for tag in @tags %>
+<p>Tag ID: <%= tag.id%></p>
+<p>Tag: <%= tag.name%></p>
+<%end %>
+
+<p><a href="/tags/new">Make new tag!</a></p>

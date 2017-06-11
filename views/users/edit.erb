@@ -1,0 +1,8 @@
+<h1>Edit user!</h1>
+<form method="POST" action="/users/<%=@user.id%>">
+
+<label for="user name">User name: </label>
+<input type="text" id="name" name="name" value="<%=@user.name%>">
+<br/>
+<input type="SUBMIT" value="Re-name!">
+</form>

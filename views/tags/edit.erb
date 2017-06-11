@@ -1,0 +1,8 @@
+<h1>Edit tag!</h1>
+<form method="POST" action="/tags/<%=@tag.id%>">
+
+<label for="tag name">Tag name: </label>
+<input type="text" id="name" name="name" value="<%=@tag.name%>">
+<br/>
+<input type="SUBMIT" value="Re-tag!">
+</form>
