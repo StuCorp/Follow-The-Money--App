@@ -13,7 +13,7 @@ def initialize(options)
 end
 
 def self.full_info
-  sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date AS buy_date, transactions.id AS transaction_id, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id;"
+  sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date AS buy_date, transactions.id AS transaction_id, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id ORDER BY buy_date DESC;"
   results = SqlRunner.run(sql)
   return results.map {|result| TransactionInfo.new(result) }
 end
@@ -25,8 +25,8 @@ def self.find_id(id)
   return TransactionInfo.new(result)
 end
 
-def self.full_info_by_date
-  sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date AS buy_date, transactions.id AS transaction_id, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id ORDER BY buy_date DESC;"
+def self.full_info_by_tag
+  sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date AS buy_date, transactions.id AS transaction_id, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id ORDER BY tag_name, buy_date DESC;"
   results = SqlRunner.run(sql)
   return results.map {|result| TransactionInfo.new(result) }
 end

@@ -3,7 +3,7 @@
 
 <%for user in @users %>
 <p>User ID: <%= user.id%></p>
-<p>User: <%= user.name%></p>
+<p>User: <%= user.name%><a href="/users/<%= user.id%>/edit"> Edit!</a></p>
 <%end %>
 
 <p><a href="/users/new">Make new user!</a></p>

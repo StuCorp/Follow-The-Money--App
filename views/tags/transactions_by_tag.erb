@@ -1,4 +1,6 @@
-<h1>All transactions!</h1>
+<h1>Transactions by tag!</h1>
+
+
 
 <table>
   <caption>All transactions </caption>
@@ -13,9 +15,7 @@
   </tr>
   </thead>
 
-<!-- can we put a sum variable that calculates the total.. -->
-<% total = 0%>
-
+  <% total = 0%>
 <%for transaction_info in @transaction_infos %>
 
 <td><%=transaction_info.buy_date%></td>
@@ -29,15 +29,5 @@
 </tr>
 <%end %>
 <tr>
-<td/><td/><td/><td>Total: </td><td>£<%='%.2f'%((total)/100)%></td><td/>
-</tr>
+<td/><td/><td/><td>Total: </td><td>£<%='%.2f'%((total)/100)%></td><td/></tr>
 </table>
-
-<!-- 
-<%for transaction_info in @transaction_infos %>
-<p>Transaction ID: <%= transaction_info.transaction_id%></p>
-<p>User: <%=transaction_info.user_name%></p>
-<p>Item: <%=transaction_info.transaction_name%></p>
-<p>Cost: <%=transaction_info.transaction_cost%></p>
-<p>Tag: <%=transaction_info.tag_name%></p>
-<%end %> -->

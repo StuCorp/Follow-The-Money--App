@@ -21,6 +21,12 @@ post '/tags' do
   redirect to '/tags'
 end
 
+get '/tags/transactions_by_tag' do
+  @tags = Tag.find_all()
+  @transaction_infos = TransactionInfo.full_info_by_tag()
+  erb(:"tags/transactions_by_tag")
+end
+
 get '/tags/:id' do
   @tag = Tag.find(params[:id])
   erb(:"tags/show")
@@ -41,6 +47,8 @@ get '/tags/:id/delete' do
   @tag.delete
   redirect to "/tags"
 end
+
+
 
 
 
