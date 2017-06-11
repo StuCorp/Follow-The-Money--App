@@ -2,7 +2,7 @@ require_relative '../db/sql_runner'
 
 class Transaction 
 
-  attr_accessor :id, :name, :cost, :user_id, :tag_id
+  attr_accessor :id, :name, :cost, :user_id, :tag_id, :buy_date
 
   def initialize(options)
 
@@ -11,16 +11,17 @@ class Transaction
     @cost = options['cost']
     @user_id = options['user_id'].to_i
     @tag_id = options['tag_id'].to_i
+    @buy_date = options['buy_date']
   end 
 
   def save()
-    sql = "INSERT INTO transactions (name, cost, user_id, tag_id) VALUES ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}) RETURNING *;"
+    sql = "INSERT INTO transactions (name, cost, user_id, tag_id, buy_date) VALUES ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, '#{@buy_date}') RETURNING *;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i  
   end
 
   def update()
-    sql = "UPDATE transactions SET (name, cost, user_id, tag_id) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}) WHERE id = #{@id};"
+    sql = "UPDATE transactions SET (name, cost, user_id, tag_id, buy_date) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, '#{@buy_date}') WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
@@ -29,7 +30,8 @@ class Transaction
     @cost = params['cost']
     @user_id = params['user_id'].to_i
     @tag_id = params['tag_id'].to_i
-    sql = "UPDATE transactions SET (name, cost, user_id, tag_id) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}) WHERE id = #{@id};"
+    @buy_date = params['buy_date']
+    sql = "UPDATE transactions SET (name, cost, user_id, tag_id, buy_date) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, '#{@buy_date}') WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
@@ -61,7 +63,7 @@ class Transaction
   end
 
   def self.full_info
-    sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id;"
+    sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date as buy_date, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id;"
     results = SqlRunner.run(sql)
     return results.map {|result| }
   end

@@ -7,7 +7,7 @@ require_relative '../models/user'
 require_relative '../models/transaction_info'
 
 get '/transactions' do
-  @transaction_infos = TransactionInfo.full_info()
+  @transaction_infos = TransactionInfo.full_info_by_date()
   erb(:"transactions/index")
 end
 

@@ -37,6 +37,7 @@ tag3.save
 transaction1 = Transaction.new({
   'name' => 'Cheese Burger',
   'cost' => 400, 
+  'buy_date' => '2017-06-13',
   'user_id' => user1.id,
   'tag_id' => tag1.id
   })
@@ -45,6 +46,7 @@ transaction1.save()
 transaction2 = Transaction.new({
   'name' => 'Petrol',
   'cost' => 3000, 
+  'buy_date' => '2017-04-03',
   'user_id' => user2.id,
   'tag_id' => tag2.id
   })
@@ -53,6 +55,7 @@ transaction2.save()
 transaction3 = Transaction.new({
   'name' => 'Drone',
   'cost' => 7900, 
+  'buy_date' => '2017-03-26',
   'user_id' => user2.id,
   'tag_id' => tag3.id
   })

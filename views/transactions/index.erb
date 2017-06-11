@@ -5,6 +5,7 @@
   <thead>
   <tr>
     <th scope="col">Transaction ID</th>
+    <th scope="col">Date</th>
     <th scope="col">User</th>
     <th scope="col">Item</th>
     <th scope="col">Cost</th>
@@ -13,8 +14,9 @@
   </thead>
 
 <%for transaction_info in @transaction_infos %>
-<tr>
-<td><%= transaction_info.transaction_id%></td>
+
+<td><%=transaction_info.buy_date%></td>
+<td><%=transaction_info.transaction_id%></td>
 <td><%=transaction_info.user_name%></td>
 <td><%=transaction_info.transaction_name%></td>
 <td>£<%='%.2f'%((transaction_info.transaction_cost.to_f)/100)%></td>
