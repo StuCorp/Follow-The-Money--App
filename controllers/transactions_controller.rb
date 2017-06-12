@@ -5,6 +5,7 @@ require_relative '../models/tag'
 require_relative '../models/transaction'
 require_relative '../models/user'
 require_relative '../models/transaction_info'
+require_relative '../models/provider'
 
 get '/transactions' do
   @transaction_infos = TransactionInfo.full_info()

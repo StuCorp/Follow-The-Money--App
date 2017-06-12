@@ -1,0 +1,12 @@
+<h1>All providers!</h1>
+
+
+<%for provider in @providers %>
+<p>Provider ID: <%= provider.id%></p>
+<p><%= provider.name%><a href="/providers/<%= provider.id%>/edit"> Edit!</a></p>
+
+<%end %>
+
+<p><a href="/providers/new">Make new provider!</a></p>
+<p><a href="/providers/transactions_by_provider">See purchases by provider!</a></p>
+

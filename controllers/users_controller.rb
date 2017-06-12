@@ -5,6 +5,8 @@ require_relative '../models/tag'
 require_relative '../models/transaction'
 require_relative '../models/user'
 require_relative '../models/transaction_info'
+require_relative '../models/provider'
+
 
 get '/users' do
   @users = User.find_all()
