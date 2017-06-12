@@ -29,7 +29,7 @@ class Transaction
 
   def update_params(params)
     @name = params['name']
-    @cost = params['cost'].to_i
+    @cost = (params['cost_pound'].to_i*100) + params['cost_pence'].to_i
     @user_id = params['user_id'].to_i
     @tag_id = params['tag_id'].to_i
     @provider_id = params['provider_id'].to_i

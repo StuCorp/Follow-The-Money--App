@@ -1,18 +1,25 @@
 <form method ="POST" action="/transactions/<%=@transaction.id%>">
 
 <label for="date">Date: </label>  
-<input type ="date" name="buy_date" id="buy_date" value="2017-06-15">
+<input type ="date" name="buy_date" id="buy_date" value="<%=@transaction.buy_date%>">
 <br/>
 
   <label for="item name">Item purchased: </label>
   <input type="text" id="name" name="name" value="<%=@transaction.name%>">
   <br/>
 
-
-  <label for="item cost">Cost: </label>
-  <input type="number" id="cost" name="cost" value="<%=@transaction.cost%>">
+  <%current_cost = TransactionInfo.format_pounds_pennies(@transaction.cost)%>
+  <label for="cost_pound">Cost: £</label>
+  <input type="number" id="cost_pound" name="cost_pound" value=<%=current_cost[0]%>>
+  <label for="cost_pence">.</label>
+  <input type="number" id="cost_pence" name="cost_pence" value =<%=current_cost[1]%> maxlength="2" size="2">
   <br/>
 
+
+<!--   <label for="item cost">Cost: </label>
+  <input type="number" id="cost" name="cost" value="<%=@transaction.cost%>">
+  <br/>
+ -->
   <label for="provider_id">Service provider: </label>  
   <select name="provider_id" id="provider_id">
     <% for provider in @providers%>
@@ -41,8 +48,14 @@
       <br/>
 
       <label for="luxury">Luxury? </label>
-      <input type="radio" name="luxury" value="true">Luxury item
+      <%if @transaction.luxury =='t'%>
+      <input type="radio" name="luxury" value="true" checked>Luxury item
       <input type="radio" name="luxury" value="false">NECESSARY!<br>
+
+      <%else%>
+      <input type="radio" name="luxury" value="true">Luxury item
+      <input type="radio" name="luxury" value="false" checked>NECESSARY!<br>
+      <%end%>
 
       <br/>
       <input type="submit" value="Update!">

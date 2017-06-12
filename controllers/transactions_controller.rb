@@ -26,6 +26,7 @@ post '/transactions' do
   @transaction.save()
   # @transaction.update
   erb(:"transactions/transaction_made")
+  redirect to '/transactions'
 end
 
 get '/transactions/:id' do
@@ -44,6 +45,7 @@ end
 
 post '/transactions/:id' do
   @transaction = Transaction.find(params[:id])
+  # @transaction.cost = (params['cost_pound'].to_i*100) + params['cost_pence'].to_i
   @transaction.update_params(params)
   redirect to '/transactions'
 end

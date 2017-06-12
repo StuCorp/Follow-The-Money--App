@@ -2,7 +2,6 @@
 
 
 <%for tag in @tags %>
-<p>Tag ID: <%= tag.id%></p>
 <p>#<%= tag.name%><a href="/tags/<%= tag.id%>/edit"> Edit!</a></p>
 
 <%end %>
