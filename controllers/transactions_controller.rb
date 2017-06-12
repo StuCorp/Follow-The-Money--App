@@ -15,13 +15,14 @@ end
 get '/transactions/new' do
   @tags = Tag.find_all()
   @users = User.find_all()
+  @providers = Provider.find_all()
 
   erb(:"transactions/new")
 end
 
 post '/transactions' do
   @transaction = Transaction.new(params)
-  @transaction.cost *= 100
+  @transaction.cost = (params['cost_pound'].to_i*100) + params['cost_pence'].to_i
   @transaction.save()
   # @transaction.update
   erb(:"transactions/transaction_made")
@@ -34,6 +35,7 @@ get '/transactions/:id' do
 end
 
 get '/transactions/:id/edit' do
+  @providers = Provider.find_all()
   @transaction = Transaction.find(params[:id])
   @tags = Tag.find_all()
   @users = User.find_all()

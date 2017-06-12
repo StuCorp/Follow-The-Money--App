@@ -20,9 +20,20 @@
     <input type="text" id = "name" name="name">
     <br/>
 
-    <label for="cost">Cost: £</label>
-    <input type="number" id="cost" name="cost">
+    <label for="cost_pound">Cost: £</label>
+    <input type="number" id="cost_pound" name="cost_pound">
+    <label for="cost_pence">.</label>
+    <input type="number" id="cost_pence" name="cost_pence" maxlength="2" size="2">
     <br/>
+
+    <label for="provider_id">Service provider: </label>  
+    <select name="provider_id" id="provider_id">
+      <% for provider in @providers%>
+      <option value="<%= provider.id %>"><%= provider.name %></option>
+      <% end %>
+      </select>
+      </label>
+      <br/>
 
     <label for="tag_id">Tag: </label>  
     <select name="tag_id" id="tag_id">
@@ -31,6 +42,11 @@
       <% end %>
       </select>
       </label>
+      <br/>
+
+      <label for="luxury">Luxury? </label>
+      <input type="radio" name="luxury" value="true">Luxury item
+      <input type="radio" name="luxury" value="false">NECESSARY!<br>
 
       <br/>
       <input type="submit" value="Bosh!">

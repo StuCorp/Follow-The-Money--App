@@ -1,5 +1,9 @@
 <form method ="POST" action="/transactions/<%=@transaction.id%>">
 
+<label for="date">Date: </label>  
+<input type ="date" name="buy_date" id="buy_date" value="2017-06-15">
+<br/>
+
   <label for="item name">Item purchased: </label>
   <input type="text" id="name" name="name" value="<%=@transaction.name%>">
   <br/>
@@ -8,6 +12,15 @@
   <label for="item cost">Cost: </label>
   <input type="number" id="cost" name="cost" value="<%=@transaction.cost%>">
   <br/>
+
+  <label for="provider_id">Service provider: </label>  
+  <select name="provider_id" id="provider_id">
+    <% for provider in @providers%>
+    <option value="<%= provider.id %>"><%= provider.name %></option>
+    <% end %>
+    </select>
+    </label>
+    <br/>
 
   <label for="user_id">User: </label>
   <select name="user_id" id="user_id" value="<%=@transaction.get_user%>">
@@ -25,6 +38,11 @@
       <% end %>
         </select>
       </label>
+      <br/>
+
+      <label for="luxury">Luxury? </label>
+      <input type="radio" name="luxury" value="true">Luxury item
+      <input type="radio" name="luxury" value="false">NECESSARY!<br>
 
       <br/>
       <input type="submit" value="Update!">

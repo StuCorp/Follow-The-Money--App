@@ -13,6 +13,8 @@
     <th scope="col">Item</th>
     <th scope="col">Cost</th>
     <th scope="col">Tag</th>
+    <th scope="col">Luxury?</th>
+    <th scope="col">Edit</th>
   </tr>
   </thead>
 
@@ -29,10 +31,12 @@
 </td>
 <%total += transaction_info.transaction_cost%>
 <td><%=transaction_info.tag_name%></td>
+<td><%=transaction_info.transaction_luxury%></td>
+<td><a href="/transactions/<%=transaction_info.transaction_id%>/edit">edit!</a></td>
 </tr>
 <%end %>
 <tr>
-<td/><td/><td/><td>Total: </td><td>£<%='%.2f'%((total)/100)%></td><td/>
+<td/><td/><td/><td>Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td><td/>
 </tr>
 </table>
 

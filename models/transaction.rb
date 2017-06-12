@@ -2,27 +2,28 @@ require_relative '../db/sql_runner'
 
 class Transaction 
 
-  attr_accessor :id, :name, :cost, :user_id, :tag_id, :buy_date, :provider_id
+  attr_accessor :id, :name, :cost, :user_id, :tag_id, :buy_date, :provider_id, :luxury
 
   def initialize(options)
 
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @cost = options['cost'].to_i
+    @cost = options['cost'].to_i if options['cost']
     @user_id = options['user_id'].to_i
     @tag_id = options['tag_id'].to_i
     @provider_id = options['provider_id'].to_i
     @buy_date = options['buy_date']
+    @luxury = options['luxury']
   end 
 
   def save()
-    sql = "INSERT INTO transactions (name, cost, user_id, tag_id, provider_id, buy_date) VALUES ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, #{@provider_id}, '#{@buy_date}') RETURNING *;"
+    sql = "INSERT INTO transactions (name, cost, user_id, tag_id, provider_id, buy_date, luxury) VALUES ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, #{@provider_id}, '#{@buy_date}', '#{@luxury}') RETURNING *;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i  
   end
 
   def update()
-    sql = "UPDATE transactions SET (name, cost, user_id, tag_id, provider_id, buy_date) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, #{@provider_id}, '#{@buy_date}') WHERE id = #{@id};"
+    sql = "UPDATE transactions SET (name, cost, user_id, tag_id, provider_id, buy_date, luxury) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, #{@provider_id}, '#{@buy_date}', '#{@luxury}') WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
@@ -33,7 +34,8 @@ class Transaction
     @tag_id = params['tag_id'].to_i
     @provider_id = params['provider_id'].to_i
     @buy_date = params['buy_date']
-    sql = "UPDATE transactions SET (name, cost, user_id, tag_id, provider_id, buy_date) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, #{@provider_id}, '#{@buy_date}') WHERE id = #{@id};"
+    @luxury = params['luxury']
+    sql = "UPDATE transactions SET (name, cost, user_id, tag_id, provider_id, buy_date, luxury) = ('#{@name}', #{@cost}, #{@user_id}, #{@tag_id}, #{@provider_id}, '#{@buy_date}', '#{@luxury}') WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
@@ -65,9 +67,9 @@ class Transaction
   end
 
   def self.full_info
-    sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date as buy_date, providers.name AS provider_name, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id INNER JOIN providers ON transactions.provider_id = providers.id;"
+    sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date as buy_date, providers.name AS provider_name, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name, transactions.luxury AS transaction_luxury FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id INNER JOIN providers ON transactions.provider_id = providers.id;"
     results = SqlRunner.run(sql)
-    return results.map {|result| }
+    return results.map {|result| TransactionInfo.new(result)}
   end
 
   def get_user()

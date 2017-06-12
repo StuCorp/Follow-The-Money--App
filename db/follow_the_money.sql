@@ -25,6 +25,7 @@ CREATE TABLE transactions (
   name VARCHAR(255),
   cost INT,
   buy_date DATE,
+  luxury BOOLEAN,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   tag_id INT REFERENCES tags(id) ON DELETE CASCADE,
   provider_id INT REFERENCES providers(id) ON DELETE CASCADE
