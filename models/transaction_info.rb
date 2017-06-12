@@ -69,6 +69,25 @@ def self.format_pounds_pennies(number)
   # got to edit and try to put this array as a value in pounds and pence.
 end
 
+def self.current_date
+  sql = "SELECT CURRENT_DATE;"
+  return SqlRunner.run(sql)[0]['date']
+end
+
+def self.start_of_this_month
+  sql = "SELECT CURRENT_DATE;"
+  current_date= SqlRunner.run(sql)[0]['date']
+  current_date[-2]='0'
+  current_date[-1]='1'
+  return current_date
+end
+
+def self.full_info_current_month
+  this_month = TransactionInfo.start_of_this_month()
+  sql = "SELECT users.id AS user_id, users.name AS user_name, transactions.buy_date AS buy_date, transactions.id AS transaction_id, transactions.name AS transaction_name, transactions.cost AS transaction_cost, tags.name AS tag_name, providers.id AS provider_id, providers.name AS provider_name, transactions.luxury as transaction_luxury FROM users INNER JOIN transactions ON users.id = transactions.user_id INNER JOIN tags ON transactions.tag_id = tags.id INNER JOIN providers ON transactions.provider_id = providers.id  WHERE buy_date BETWEEN '#{this_month}' AND CURRENT_DATE ORDER BY buy_date DESC;"
+  results = SqlRunner.run(sql)
+  return results.map {|result| TransactionInfo.new(result) }
+end
 
 
 

@@ -75,7 +75,6 @@ class Transaction
   def get_user()
     sql = "SELECT users.name FROM users WHERE id = #{@user_id};"
     return SqlRunner.run(sql).first['name']
-    
   end
 
 

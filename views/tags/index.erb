@@ -1,11 +1,11 @@
 <h1>All tags!</h1>
 
-
+<p><a href="/tags/new">Make new tag!</a></p>
 <%for tag in @tags %>
 <p>#<%= tag.name%><a href="/tags/<%= tag.id%>/edit"> Edit!</a></p>
 
+
 <%end %>
 
-<p><a href="/tags/new">Make new tag!</a></p>
 <p><a href="/tags/transactions_by_tag">See purchases by tag!</a></p>
 

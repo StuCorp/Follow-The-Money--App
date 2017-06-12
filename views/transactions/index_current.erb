@@ -1,10 +1,10 @@
-<h1>Transactions this month!</h1>
+<h1>All transactions!</h1>
 
 <p><a href="/transactions/new">Make new transaction!</a></p>
 
 
 <table>
-  <caption>Whatever! </caption>
+  <caption>All transactions </caption>
   <thead>
   <tr>
     <th scope="col">Transaction ID</th>
@@ -32,14 +32,12 @@
 <%total += transaction_info.transaction_cost%>
 <td><%=transaction_info.tag_name%></td>
 <td><%=transaction_info.transaction_luxury%></td>
-<td><a href="/transactions/<%=transaction_info.transaction_id%>/edit">edit!</a><a href="/transactions/<%=transaction_info.transaction_id%>/delete"> delete!</a></td>
+<td><a href="/transactions/<%=transaction_info.transaction_id%>/edit">edit!</a></td>
 </tr>
 <%end %>
 <tr>
 <td/><td/><td/><td>Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td><td/>
 </tr>
 </table>
-
-<h2><%=@user.name%> has £<%= TransactionInfo.format_pennies(@user.budget - total)%> of his monthly £<%=TransactionInfo.format_pennies(@user.budget)%></h2>
 
 

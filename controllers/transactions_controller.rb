@@ -8,15 +8,16 @@ require_relative '../models/transaction_info'
 require_relative '../models/provider'
 
 get '/transactions' do
-  @transaction_infos = TransactionInfo.full_info()
+  @user = User.find_all[0]
+  @transaction_infos = TransactionInfo.full_info_current_month()
   erb(:"transactions/index")
 end
 
 get '/transactions/new' do
+  @current_date = TransactionInfo.current_date()
   @tags = Tag.find_all()
   @users = User.find_all()
   @providers = Provider.find_all()
-
   erb(:"transactions/new")
 end
 
