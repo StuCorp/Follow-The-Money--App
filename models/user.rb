@@ -2,21 +2,22 @@ require_relative '../db/sql_runner'
 
 class User
 
-  attr_accessor :id, :name
+  attr_accessor :id, :name, :budget
 
   def initialize(options)
     @id = options['id'].to_i if options['id'] 
-    @name = options['name']  
+    @name = options['name'] 
+    @budget = options['budget'].to_i 
   end
 
   def save()
-    sql = "INSERT INTO users (name) VALUES ('#{@name}') RETURNING *;"
+    sql = "INSERT INTO users (name, budget) VALUES ('#{@name}', #{@budget}) RETURNING *;"
     result = SqlRunner.run(sql)
     @id = result[0]['id'].to_i  
   end
 
   def update()
-    sql = "UPDATE users SET (name) = ('#{@name}') WHERE id = #{@id};"
+    sql = "UPDATE users SET (name, budget) = ('#{@name}', #{@budget}) WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 

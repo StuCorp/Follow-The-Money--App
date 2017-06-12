@@ -4,5 +4,8 @@
 <label for="user name">User name: </label>
 <input type="text" id="name" name="name" value="<%=@user.name%>">
 <br/>
+<label for="user budget">Monthly budget: £</label>
+<input type="number" id="budget" name="budget" value="<%='%.2f'%((@user.budget.to_f)/100)%>">
+<br/>
 <input type="SUBMIT" value="Re-name!">
 </form>

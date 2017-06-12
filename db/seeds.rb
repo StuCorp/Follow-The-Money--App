@@ -9,12 +9,14 @@ Tag.delete_all()
 Transaction.delete_all()
 
 user1 = User.new({
-  'name' => 'Jia Wong'
+  'name' => 'Jia Wong',
+  'budget' => 50000
   })
 user1.save
 
 user2 = User.new({
-  'name' => 'Crawfunds Davidson'
+  'name' => 'Crawfunds Davidson',
+  'budget' => 70000
   })
 user2.save
 

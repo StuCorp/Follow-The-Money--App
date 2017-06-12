@@ -4,7 +4,8 @@ DROP TABLE if exists tags;
 
 CREATE TABLE users (
 id SERIAL8 PRIMARY KEY,
-name VARCHAR(255)
+name VARCHAR(255),
+budget INT
 );
 
 CREATE TABLE tags (

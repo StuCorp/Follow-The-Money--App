@@ -17,6 +17,7 @@ end
 
 post '/users' do
   @user = User.new(params)
+  @user.budget *= 100
   @user.save()
   redirect to '/users'
 end
@@ -32,7 +33,11 @@ get '/users/:id/edit' do
 end
 
 post '/users/:id' do
-  User.new(params).update
+  @user = User.new(params)
+  @user.budget *= 100
+  @user.update()
+  # User.new(params).update
+
   redirect to '/users'
 end
 
