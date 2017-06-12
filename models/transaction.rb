@@ -8,7 +8,7 @@ class Transaction
 
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @cost = options['cost']
+    @cost = options['cost'].to_i
     @user_id = options['user_id'].to_i
     @tag_id = options['tag_id'].to_i
     @buy_date = options['buy_date']
@@ -27,7 +27,7 @@ class Transaction
 
   def update_params(params)
     @name = params['name']
-    @cost = params['cost']
+    @cost = params['cost'].to_i
     @user_id = params['user_id'].to_i
     @tag_id = params['tag_id'].to_i
     @buy_date = params['buy_date']

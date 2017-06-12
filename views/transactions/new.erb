@@ -2,6 +2,11 @@
 
 <form action ="/transactions" method ="POST">
 
+
+<label for="date">Date: </label>  
+<input type ="date" name="buy_date" id="buy_date" value="2017-06-15">
+<br/>
+
   <label for="user_id">User: </label>  
   <select name="user_id" id="user_id">
     <% for user in @users %>
@@ -15,7 +20,7 @@
     <input type="text" id = "name" name="name">
     <br/>
 
-    <label for="cost">Cost: </label>
+    <label for="cost">Cost: £</label>
     <input type="number" id="cost" name="cost">
     <br/>
 

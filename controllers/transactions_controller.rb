@@ -20,7 +20,9 @@ end
 
 post '/transactions' do
   @transaction = Transaction.new(params)
+  @transaction.cost *= 100
   @transaction.save()
+  # @transaction.update
   erb(:"transactions/transaction_made")
 end
 
