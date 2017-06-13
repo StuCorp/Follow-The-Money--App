@@ -4,9 +4,105 @@
   box-sizing: border-box;
   border: 1px solid black;
 }
-/*
-input:checked + .sub-menu-container{ display: none; }*/
 
 body {
-  background-color: hotpink;
+  background-color: #DAF5FF;
+}
+/*
+menu-container
+menu
+header-container
+header
+display-container
+footer*/
+
+/*
+inside the yield page
+sub-menu-container
+sub-menu*/
+
+.menu-container{
+  color: #fff;
+  background-color: #616163;  /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.menu{
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-container {
+  color: #5995DA;
+  background-color: rgba(255, 86, 229, 0.6);
+  display: flex;
+  justify-content: center;
+}
+
+/*Use align-items to define the vertical alignment of items.*/
+.header {
+  width: 900px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.first-row {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.second-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+}
+
+.display-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.sub-menu-container{
+  color: #fff;
+  background-color: #5995DA;  /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+
+}
+.sub-menu{
+
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  background-color: 616163;
+}
+
+.footer-item {
+  border: 1px solid #fff;
+  background-color: #616163;
+  height: 200px;
+  flex: 1;
+}
+
+.footer-one,
+.footer-three {
+  /*background-color: #5995DA;*/
+  flex: initial;
+  width: 300px;
 }
