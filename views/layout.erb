@@ -11,9 +11,15 @@
 
 <body>
 
+<!-- <div class="omni-div"> -->
+
+<div class="menu-container-container">
+<div class="top-left-block">
+
+</div>
   <div class='menu-container'>
-  <div class="site-title">
-  FOLLOW THE MONEY
+  <div class="site-title"><a href="/transactions">
+  FOLLOW THE MONEY</a>
   </div>
     <div class='menu'>
       <div class='user'>User: <%=User.find_all[0].name%>
@@ -21,6 +27,8 @@
       </div>
       <div class='budget-left'>Budget left: £<%=TransactionInfo.format_pennies(User.budget(User.find_all[0].budget))%></div>
     </div>
+  </div>
+
   </div>
 
   <div class='header-container'>
@@ -50,6 +58,19 @@
 </nav> -->
 
 <div class='display-container'>
+  <div class='view-menu-container'>
+    <div class='view-menu'>
+
+      <div class='this-month'><a href="/transactions">this month</a><img src=''/></div>
+
+      <div class='by-tag'><a href="/tags/transactions_by_tag">by tag</a><img src=''/></div>
+
+      <div class='by-provider'><a href="/providers/transactions_by_provider">by providers</a><img src=''/></div>
+
+      <div class='luxury'><a href="/transactions/transactions_by_luxury">luxury overload</a><img src=''/></div>
+      <div class='all'><a href="/transactions/transactions_total">lifetime</a><img src=''/></div>
+    </div>
+  </div>
   <%=yield%>
 </div>
 
@@ -59,6 +80,9 @@
   <div class='footer-item footer-two'></div>
   <!-- <div class='footer-item footer-three'></div> -->
 </div>
+
+<!-- omni-div
+</div> -->
 
 </body>
 </html>

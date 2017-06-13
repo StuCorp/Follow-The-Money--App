@@ -38,6 +38,23 @@ sub-menu*/
 
 /*FLEXBOX ADAPTED FROM https://internetingishard.com/html-and-css/flexbox/*/
 
+/*.omni-div {
+  display: flex;
+  width: 920;
+}*/
+
+.menu-container-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-left-block {
+  display: flex;
+  width: 200px;
+  background-color: #616163;
+
+}
+
 .menu-container{
   color: #fff;
   background-color: #616163;  /* dark grey */
@@ -46,9 +63,10 @@ sub-menu*/
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
-.site-title {
+.site-title a {
   font-size: 50px;
   font-family: 'Monoton', cursive;
 
@@ -93,11 +111,22 @@ sub-menu*/
 
 .display-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-
-
 }
+
+/*.table-friend {
+  display: flex;
+  flex-direction: row;
+}
+
+.yield-buddy {
+  display: flex;
+  border:; 2px dotted black;
+  align-content: flex-start;
+  height: 100px;
+  width: 100px;
+}*/
 
 .view-menu-container{
 
@@ -105,16 +134,26 @@ sub-menu*/
   background-color: hotpink;  /* Blue */
   padding: 20px 0;
   display: flex;
-  justify-content: center;
-  width: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: initial;
+  width: 200px;
+  height: 1186px;
+
+
 
 
 }
 .view-menu{
 
-  width: 900px;
+  width: 200px;
+  height: 1146px;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
 }
 
 .footer{
@@ -163,7 +202,7 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
   }
 
   .table-title h3 {
-     color: #fafafa;
+     color: #badaff;
      font-size: 30px;
      font-weight: 400;
      font-style:normal;
@@ -181,11 +220,13 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
     border-collapse: collapse;
     height: 320px;
     margin: auto;
+    margin-top: 40px;
     max-width: 600px;
     padding:5px;
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     animation: float 5s infinite;
+
 
   }
    
@@ -221,12 +262,16 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
   }
    
   tr:hover td {
-    background:#4E5066;
+    /*background:#4E5066;*/
+    background:#616163;
     color:#FFFFFF;
     border-top: 1px solid #22262e;
     border-bottom: 1px solid #22262e;
   }
-   
+
+  tr:hover a {
+    color: #FFF;
+  }
   tr:first-child {
     border-top:none;
   }
@@ -240,7 +285,7 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
   }
    
   tr:nth-child(odd):hover td {
-    background:#4E5066;
+    background:#616163;
   }
 
   tr:last-child td:first-child {
