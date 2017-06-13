@@ -3,8 +3,9 @@
 <p><a href="/users/new">Make new user!</a></p>
 <%for user in @users %>
 <p>User ID: <%= user.id%></p>
-<p>User: <%= user.name%><a href="/users/<%= user.id%>/edit"> Edit!</a></p>
-<p>Monthyl budget: £<%='%.2f'%((user.budget.to_f)/100)%> </p>
+<p>User: <%= user.name%></p>
+<p>Monthyl budget: £<%='%.2f'%((user.budget.to_f)/100)%><a href="/users/<%= user.id%>/edit"> Edit!</a> </p>
+<br>
 <%end %>
 
 <p><a href="/users/new">Make new user!</a></p>

@@ -13,6 +13,18 @@ get '/transactions' do
   erb(:"transactions/index")
 end
 
+get '/transactions/transactions_by_luxury' do
+  @user = User.find_all[0]
+  @transaction_infos = TransactionInfo.full_info_current_month_sort_by('transaction_luxury', 'desc')
+  erb(:"transactions/transactions_by_luxury")
+end
+
+get '/transactions/transactions_total' do
+  @user = User.find_all[0]
+  @transaction_infos = TransactionInfo.full_info_sort_by('buy_date', 'desc')
+  erb(:"transactions/transactions_total")
+end
+
 get '/transactions/new' do
   @current_date = TransactionInfo.current_date()
   @tags = Tag.find_all()

@@ -1,3 +1,4 @@
+<h1>Transactions this month!</h1>
 
 <div class='view-menu-container'>
   <div class='view-menu'>
@@ -8,19 +9,19 @@
 
     <div class='by-provider'><a href="/providers/transactions_by_provider">by providers</a><img src=''/></div>
 
-    <div class='luxury'><a href="/transactions/transactions_by_luxury">luxury overload</a><img src=''/></div>
-    <div class='all'><a href="/transactions/transactions_total">lifetime</a><img src=''/></div>
+    <div class='luxury'><<a href="/transactions/transactions_by_luxury">luxury overload</a><img src=''/></div>
+    <div class='all'>lifetime<img src=''/></div>
   </div>
 </div>
 
 
 
+<p><a href="/transactions/new">Make new transaction!</a></p>
 
 <!-- TABLE TABLE TABLE TABLE TABLE TABLE  -->
 
-
 <div class="table-title">
-<h3>Transactions for <%=TransactionInfo.current_month%> <%=TransactionInfo.current_year%> </h3>
+<h3>All transactions</h3>
 </div>
 <table class="table-fill">
   <thead>
@@ -49,8 +50,7 @@
   </td>
   <%total += transaction_info.transaction_cost%>
   <td class="text-left"><%=transaction_info.tag_name%></td>
-  <td class="text-left"><%=transaction_info.transaction_luxury == 't'? "\u{2714}" : ""
-    %></td>
+  <td class="text-left"><%=transaction_info.transaction_luxury%></td>
   <td class="text-left"><a href="/transactions/<%=transaction_info.transaction_id%>/edit">edit!</a><a href="/transactions/<%=transaction_info.transaction_id%>/delete"> delete!</a></td>
 </tr>
 <%end %>

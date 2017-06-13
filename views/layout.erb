@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/stylesheet.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Monoton|Roboto" rel="stylesheet">
   <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-  <title>Paper chase!</title>
+  <title>Follow the money!</title>
 </head>
 
 <body>
@@ -16,8 +16,10 @@
   FOLLOW THE MONEY
   </div>
     <div class='menu'>
-      <div class='user'>Stuart Bryce-hardcode--add change user</div>
-      <div class='budget-left'>Budget left: <%=User.budget%></div>
+      <div class='user'>User: <%=User.find_all[0].name%>
+        <div class='change_user'><a href="/users">Change user</a></div>
+      </div>
+      <div class='budget-left'>Budget left: £<%=TransactionInfo.format_pennies(User.budget(User.find_all[0].budget))%></div>
     </div>
   </div>
 

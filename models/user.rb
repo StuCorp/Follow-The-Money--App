@@ -1,4 +1,6 @@
 require_relative '../db/sql_runner'
+require_relative './transaction_info'
+
 
 class User
 
@@ -48,8 +50,14 @@ class User
     SqlRunner.run(sql)  
   end
 
-  def self.budget()
-    return "budget amount"
+  def self.budget(budget)
+    this_month = TransactionInfo.start_of_this_month()
+    sql = "SELECT cost FROM transactions WHERE buy_date BETWEEN '#{this_month}' AND CURRENT_DATE;"
+    hash_of_costs = SqlRunner.run(sql)
+    total_spend =0
+    hash_of_costs.each {|hash| total_spend += hash['cost'].to_i}  
+    return budget - total_spend
+    
   end
 
 end

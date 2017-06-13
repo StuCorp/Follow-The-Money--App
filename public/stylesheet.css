@@ -4,6 +4,8 @@
   box-sizing: border-box;
   /*border: 1px solid black;*/
   font-family: 'Roboto', sans-serif;
+  font-size: 18px; 
+  text-decoration: none;
 }
 
 body {
@@ -89,6 +91,7 @@ sub-menu*/
   display: flex;
   justify-content: center;
 
+
 }
 .view-menu{
 
@@ -121,7 +124,7 @@ sub-menu*/
 table from 
 https://codepen.io/anon/pen/awZKoN?editors=1100*/
 
-  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
 
   body {
     background-color: #3e94ec;
