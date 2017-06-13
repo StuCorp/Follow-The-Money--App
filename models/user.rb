@@ -48,4 +48,8 @@ class User
     SqlRunner.run(sql)  
   end
 
+  def self.budget()
+    return "budget amount"
+  end
+
 end

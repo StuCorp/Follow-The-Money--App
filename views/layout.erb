@@ -6,15 +6,54 @@
   <link rel="stylesheet" href="/stylesheet.css" type="text/css">
   <title>Paper chase!</title>
 </head>
+
 <body>
-<nav>
+
+<div class='menu-container'>
+  <div class='menu'>
+    <div class='user'>Stuart Bryce-hardcode--add change user</div>
+    <div class='budget-left'>Budget left: <%=User.budget%></div>
+  </div>
+</div>
+
+<div class='header-container'>
+  <div class='header'>
+    <div class='transactions'><a href="/transactions">View transactions!</a><img src='images/'/></div>
+    <div class='tags'><a href="/tags">View tags!</a><img src='images/'/></div>
+    <div class='users'><a href="/users">View users!</a><img src='images/social-icons.svg'/></div>
+    <div class='providers'><a href="/providers">View service providers!</a><img src='images/'/></div>
+    <div class='new-transaction'><a href="/transactions/new">Make new transaction!</a><img src='images/'/></div>
+  </div>
+</div>
+
+<label for=cb>Click Here</label>
+<input type='checkbox' style='display: none' id=cb>
+<div>
+    Hello. This is some stuff.
+</div>
+
+
+<div class='sub-menu-container'>
+  <div class='sub-menu'>
+
+  <div class='this-month'><a href="/transactions">this month</a><img src=''/></div>
+
+    <div class='by-tag'><a href="/tags/transactions_by_tag">by tag</a><img src=''/></div>
+
+    <div class='luxury'>luxury overload<img src=''/></div>
+    <div class='all'>lifetime<img src=''/></div>
+  </div>
+</div>
+
+<!-- <nav>
   <ul>
     <li><a href="/transactions">View transactions!</a></li>
     <li> <a href="/tags">View tags!</a>></li>
     <li> <a href="/users">View users!</a>></li>
     <li> <a href="/providers">View service providers!</a>></li>
   </ul>
-</nav>
+</nav> -->
+
 
 <%=yield%>
   
