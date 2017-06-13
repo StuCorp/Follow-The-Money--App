@@ -1,6 +1,7 @@
 <h1>All users!</h1>
-
+<br>
 <p><a href="/users/new">Make new user!</a></p>
+<br>
 <%for user in @users %>
 <p>User ID: <%= user.id%></p>
 <p>User: <%= user.name%></p>
@@ -8,5 +9,4 @@
 <br>
 <%end %>
 
-<p><a href="/users/new">Make new user!</a></p>
 

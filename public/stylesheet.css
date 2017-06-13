@@ -2,14 +2,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /*border: 1px solid black;*/
+  /*border: 1px dotted black;*/
   font-family: 'Roboto', sans-serif;
   font-size: 18px; 
-  text-decoration: none;
+}
+
+a {
+  text-decoration: none; 
+  color: white;
+}
+a:hover {
+  color: black;
+}
+
+
+td a {
+  color: #616163;
 }
 
 body {
-  background-color: #DAF5FF;
+  background-color: #FFF;
 }
 /*
 menu-container
@@ -24,9 +36,11 @@ inside the yield page
 sub-menu-container
 sub-menu*/
 
+/*FLEXBOX ADAPTED FROM https://internetingishard.com/html-and-css/flexbox/*/
+
 .menu-container{
   color: #fff;
-  background-color: #616163;  /* Blue */
+  background-color: #616163;  /* dark grey */
   padding: 20px 0;
   display: flex;
   justify-content: center;
@@ -48,15 +62,16 @@ sub-menu*/
 
 .header-container {
   color: #5995DA;
-  background-color: #edeaec;
+  background-color: lightgrey;
   display: flex;
   justify-content: center;
+
 }
 
 /*Use align-items to define the vertical alignment of items.*/
 .header {
   width: 900px;
-  height: 100px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -85,11 +100,13 @@ sub-menu*/
 }
 
 .view-menu-container{
+
   color: #fff;
-  background-color: #87F6FF;  /* Blue */
+  background-color: hotpink;  /* Blue */
   padding: 20px 0;
   display: flex;
   justify-content: center;
+  width: 100%;
 
 
 }
@@ -103,22 +120,23 @@ sub-menu*/
 .footer{
   display: flex;
   justify-content: space-between;
-  background-color: 616163;
+  background-color: #616163;
 }
 
 .footer-item {
   border: 1px solid #fff;
   background-color: #616163;
-  height: 200px;
-  flex: 1;
+  height: 150px;
 }
 
-.footer-one,
+/*.footer-one,
 .footer-three {
-  /*background-color: #5995DA;*/
+  background-color: #5995DA;
   flex: initial;
   width: 300px;
 }
+*/
+
 
 /*
 table from 
@@ -127,11 +145,13 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
 
 
   body {
-    background-color: #3e94ec;
+    background-color: #badaff;
     font-family: "Roboto", helvetica, arial, sans-serif;
     font-size: 16px;
     font-weight: 400;
     text-rendering: optimizeLegibility;
+
+
   }
 
   div.table-title {
@@ -166,6 +186,7 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     animation: float 5s infinite;
+
   }
    
   th {
