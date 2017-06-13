@@ -74,6 +74,29 @@ def self.current_date
   return SqlRunner.run(sql)[0]['date']
 end
 
+def self.current_month
+  months = ["January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"]
+ sql = " select extract(month from current_date);"
+  month_num = SqlRunner.run(sql)[0]['date_part'].to_i
+  return months[month_num-1]
+end
+
+def self.current_year
+ sql = "select extract(year from current_date);"
+  return SqlRunner.run(sql)[0]['date_part'].to_i
+end
+
 def self.start_of_this_month
   sql = "SELECT CURRENT_DATE;"
   current_date= SqlRunner.run(sql)[0]['date']
