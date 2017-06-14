@@ -182,6 +182,9 @@ sub-menu*/
 
 }
 
+/*form adapted from:*/
+/*https://www.sitepoint.com/style-web-forms-css/*/
+
 form {
   background: -webkit-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
   background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
@@ -210,7 +213,7 @@ form {
 
 
 /*
-table from 
+table adapted from 
 https://codepen.io/anon/pen/awZKoN?editors=1100*/
 
 

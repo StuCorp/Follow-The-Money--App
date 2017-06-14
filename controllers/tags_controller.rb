@@ -25,7 +25,7 @@ end
 
 get '/tags/transactions_by_tag' do
   @tags = Tag.find_all()
-  @transaction_infos = TransactionInfo.full_info_by_tag()
+  @transaction_infos = TransactionInfo.full_info_current_month_sort_by('tag_name', 'desc')
   erb(:"tags/transactions_by_tag")
 end
 
