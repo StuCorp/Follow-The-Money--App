@@ -25,7 +25,7 @@ end
 
 get '/providers/transactions_by_provider' do
   @providers = Provider.find_all()
-  @transaction_infos = TransactionInfo.full_info_by_provider()
+  @transaction_infos = TransactionInfo.full_info_by_provider_current_month()
   erb(:"providers/transactions_by_provider")
 end
 

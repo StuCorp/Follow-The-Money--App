@@ -1,4 +1,4 @@
-<h1>All providers!</h1>
+<!-- <h1>All providers!</h1>
 
 <p><a href="/provider/new">Make new provider!</a></p>
 <%for provider in @providers %>
@@ -9,4 +9,36 @@
 
 <p><a href="/providers/new">Make new provider!</a></p>
 <p><a href="/providers/transactions_by_provider">See purchases by provider!</a></p>
+
+ -->
+
+<table class="table-fill">
+
+  <thead>
+    <tr>
+      <th class="text-left">Provider</th>
+      <th class="text-left">New</th>
+      <th class="text-left">Edit</th>
+      <th class="text-left">Delete</th>
+    </tr>
+  </thead>
+
+  <!-- can we put a sum variable that calculates the total.. -->
+  <%for provider in @providers %>
+
+  <td class="text-left"><%= provider.name%></td>   
+
+  <td class="text-left"><a href="/providers/new">new!</a>
+
+  <td class="text-left"><a href="/providers/<%= provider.id%>/edit">edit!</a>
+
+  <td class="text-left"><a href="/providers/<%= provider.id%>/delete"> delete!</a></td>
+  </tr>
+
+  <%end %>
+
+
+</table>
+
+
 

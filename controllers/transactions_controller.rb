@@ -37,8 +37,7 @@ post '/transactions' do
   @transaction = Transaction.new(params)
   @transaction.cost = (params['cost_pound'].to_i*100) + params['cost_pence'].to_i
   @transaction.save()
-  # @transaction.update
-  erb(:"transactions/transaction_made")
+  User.find(@transaction.user_id).over_budget ? erb(:"transactions/crisis") : erb(:"transactions/transaction_made")
   redirect to '/transactions'
 end
 

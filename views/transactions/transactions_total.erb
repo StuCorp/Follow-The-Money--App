@@ -6,6 +6,7 @@
     <tr>
       <th class="text-left">Date</th>
       <th class="text-left">Item</th>
+      <th class="text-left">Merchant</th>
       <th class="text-left">Tag</th>
       <th class="text-left"">Luxury?</th>
       <th class="text-left">Cost</th>
@@ -22,6 +23,7 @@
   
   <td class="text-left"><%=transaction_info.transaction_name%></td>
 
+  <td class="text-left"><%=transaction_info.provider_name%></td>
  
   <td class="text-left"><%=transaction_info.tag_name%></td>
 
@@ -37,7 +39,7 @@
 <%end %>
 <!-- total spent -->
 <tr>
-  <td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td class="text-left"/>
+  <td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td/><td/>
 </tr>
 
 

@@ -6,6 +6,7 @@
     <tr>
       <th class="text-left">Date</th>
       <th class="text-left">Item</th>
+      <th class="text-left">Merchant</th>
       <th class="text-left">Tag</th>
       <th class="text-left"">Luxury?</th>
       <th class="text-left">Cost</th>
@@ -15,6 +16,8 @@
 
   <!-- can we put a sum variable that calculates the total.. -->
   <% total = 0%>
+  <% lux_total = 0%>
+
 
   <%for transaction_info in @transaction_infos %>
 
@@ -22,11 +25,14 @@
   
   <td class="text-left"><%=transaction_info.transaction_name%></td>
 
+  <td class="text-left"><%=transaction_info.provider_name%></td>
+
  
   <td class="text-left"><%=transaction_info.tag_name%></td>
 
   <td class="text-left"><%=transaction_info.transaction_luxury == 't'? "\u{2714}" : ""
     %></td>
+    <%transaction_info.transaction_luxury == 't'? lux_total += transaction_info.transaction_cost: lux_total += 0%>
 
     <td class="text-left">£<%='%.2f'%((transaction_info.transaction_cost.to_f)/100)%></td>
     <%total += transaction_info.transaction_cost%>
@@ -37,7 +43,9 @@
 <%end %>
 <!-- total spent -->
 <tr>
-  <td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td class="text-left"/>
+  <td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td/><td/>
+</tr><tr>
+  <td/><td/><td/><td class="text-left">Total luxury spending: </td><td>£<%=TransactionInfo.format_pennies(lux_total)%></td><td/><td/>
 </tr>
 
 

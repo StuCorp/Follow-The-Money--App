@@ -1,12 +1,35 @@
-<h1>All users!</h1>
-<br>
-<p><a href="/users/new">Make new user!</a></p>
-<br>
-<%for user in @users %>
-<p>User ID: <%= user.id%></p>
-<p>User: <%= user.name%></p>
-<p>Monthly budget: £<%='%.2f'%((user.budget.to_f)/100)%><a href="/users/<%= user.id%>/edit"> Edit!</a> </p>
-<br>
-<%end %>
+
+
+<table class="table-fill">
+
+  <thead>
+    <tr>
+      <th class="text-left">User</th>
+      <th class="text-left">Budget</th>
+      <th class="text-left">New</th>
+      <th class="text-left">Edit</th>
+      <th class="text-left">Delete</th>
+    </tr>
+  </thead>
+
+  <!-- can we put a sum variable that calculates the total.. -->
+  <%for user in @users %>
+
+  <td class="text-left"><%= user.name%></td> 
+
+  <td class="text-left">£<%= TransactionInfo.format_pennies(user.budget)%></td>    
+
+  <td class="text-left"><a href="/users/new">new!</a>
+
+  <td class="text-left"><a href="/users/<%= user.id%>/edit">edit!</a>
+
+  <td class="text-left"><a href="/users/<%= user.id%>/delete"> delete!</a></td>
+  </tr>
+
+  <%end %>
+
+
+</table>
+
 
 

@@ -57,7 +57,14 @@ class User
     total_spend =0
     hash_of_costs.each {|hash| total_spend += hash['cost'].to_i}  
     return budget - total_spend
-    
+  end
+
+  def over_budget()
+    if User.budget(@budget) < 0 
+      true
+    else
+      false
+    end
   end
 
 end
