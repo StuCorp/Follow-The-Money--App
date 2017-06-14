@@ -41,9 +41,16 @@
       </div>
 
       <div class='second-row'>
-        <div class='tags'><a href="/tags">View tags!</a><img src='images/'/></div>
-        <div class='users'><a href="/users">View users!</a><img src='images/'/></div>
-        <div class='providers'><a href="/providers">View service providers!</a><img src='images/'/></div>
+        
+        <div class='transaction-by-tags'><a href="/tags/transactions_by_tag">Spending by tag!</a><img src='images/'/></div>
+        <!-- <div class='users'><a href="/users">View users!</a><img src='images/'/></div> -->
+        <div class='transaction-by-providers'><a href="/providers/transactions_by_provider">Spending by merchant!</a><img src='images/'/></div>
+
+        <div class='transaction-by-luxury'><a href="/transactions/transactions_by_luxury">Luxury overspend analysis!</a><img src='images/'/></div>
+
+        <div class='transaction-by-total'><a href="/transactions/transactions_total">Full transaction list!</a><img src='images/'/></div>
+
+       
       </div>
     </div>
   </div>
@@ -61,14 +68,19 @@
   <div class='view-menu-container'>
     <div class='view-menu'>
 
-      <div class='this-month'><a href="/transactions">this month</a><img src=''/></div>
+     <!-- <div class='tags'><a href="/tags">View tags!</a><img src='images/'/></div>
+     <div class='users'><a href="/users">View users!</a><img src='images/'/></div>
+     <div class='providers'><a href="/providers">View service providers!</a><img src='images/'/></div>
+    -->
+      
+      <div class='view-tags'><a href="/tags">View tags!</a><img src=''/></div>
 
-      <div class='by-tag'><a href="/tags/transactions_by_tag">by tag</a><img src=''/></div>
+      <div class='view-users'><a href="/users">View users!</a><img src=''/></div>
 
-      <div class='by-provider'><a href="/providers/transactions_by_provider">by providers</a><img src=''/></div>
-
+      <div class='view-providers'><a href="/providers">View providers!</a><img src=''/></div>
+<!-- 
       <div class='luxury'><a href="/transactions/transactions_by_luxury">luxury overload</a><img src=''/></div>
-      <div class='all'><a href="/transactions/transactions_total">lifetime</a><img src=''/></div>
+      <div class='all'><a href="/transactions/transactions_total">lifetime</a><img src=''/></div> -->
     </div>
   </div>
   <%=yield%>

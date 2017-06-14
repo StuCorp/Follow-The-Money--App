@@ -1,33 +1,65 @@
-<h1>Transactions by tag!</h1>
+
+
+<!-- <div class="table-title">
+<h3>Transactions for <%=TransactionInfo.current_month%> <%=TransactionInfo.current_year%> </h3>
+</div> -->
 
 
 
-<table>
-  <caption>All transactions </caption>
+
+
+
+<!-- TABLE TABLE TABLE TABLE TABLE TABLE  -->
+
+
+<!-- <div class="table-title">
+<h3>Transactions for <%=TransactionInfo.current_month%> <%=TransactionInfo.current_year%> </h3>
+</div> -->
+
+
+
+<table class="table-fill">
+
   <thead>
-  <tr>
-    <th scope="col">Transaction ID</th>
-    <th scope="col">Date</th>
-    <th scope="col">User</th>
-    <th scope="col">Item</th>
-    <th scope="col">Cost</th>
-    <th scope="col">Tag</th>
-  </tr>
+    <tr>
+      <th class="text-left">Date     </th>
+      <th class="text-left">Item</th>
+      <th class="text-left">Tag</th>
+      <th class="text-left"">Luxury?</th>
+      <th class="text-left">Cost</th>
+      <th class="text-left">Edit</th>
+    </tr>
   </thead>
 
+  <!-- can we put a sum variable that calculates the total.. -->
   <% total = 0%>
-<%for transaction_info in @transaction_infos %>
 
-<td><%=transaction_info.buy_date%></td>
-<td><%=transaction_info.transaction_id%></td>
-<td><%=transaction_info.user_name%></td>
-<td><%=transaction_info.transaction_name%></td>
-<td>£<%='%.2f'%((transaction_info.transaction_cost.to_f)/100)%>
-</td>
-<%total += transaction_info.transaction_cost%>
-<td><%=transaction_info.tag_name%></td>
+  <%for transaction_info in @transaction_infos %>
+
+  <td class="text-left"><%=transaction_info.buy_date%></td>
+  
+  <td class="text-left"><%=transaction_info.transaction_name%></td>
+
+ 
+  <td class="text-left"><%=transaction_info.tag_name%></td>
+
+  <td class="text-left"><%=transaction_info.transaction_luxury == 't'? "\u{2714}" : ""
+    %></td>
+
+    <td class="text-left">£<%='%.2f'%((transaction_info.transaction_cost.to_f)/100)%></td>
+    <%total += transaction_info.transaction_cost%>
+    
+
+  <td class="text-left"><a href="/transactions/<%=transaction_info.transaction_id%>/edit">edit!</a><a href="/transactions/<%=transaction_info.transaction_id%>/delete"> delete!</a></td>
 </tr>
 <%end %>
+<!-- total spent -->
 <tr>
-<td/><td/><td/><td>Total: </td><td>£<%='%.2f'%((total)/100)%></td><td/></tr>
+  <td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td class="text-left"/>
+</tr>
+
+
 </table>
+
+
+

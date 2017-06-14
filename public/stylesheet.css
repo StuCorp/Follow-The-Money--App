@@ -91,7 +91,7 @@ sub-menu*/
 /*Use align-items to define the vertical alignment of items.*/
 .header {
   width: 900px;
-  height: 50px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -114,7 +114,7 @@ sub-menu*/
 .display-container{
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
 }
 
 /*.table-friend {
@@ -140,7 +140,8 @@ sub-menu*/
   align-items: stretch;
   flex: initial;
   width: 200px;
-  height: 1186px;
+
+
 
 
 
@@ -243,6 +244,7 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
     text-align:left;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     vertical-align:middle;
+
   }
 
   th:first-child {
@@ -307,6 +309,7 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
     font-size:18px;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
+
   }
 
   td:last-child {

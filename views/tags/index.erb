@@ -1,11 +1,34 @@
-<h1>All tags!</h1>
-
-<p><a href="/tags/new">Make new tag!</a></p>
-<%for tag in @tags %>
-<p>#<%= tag.name%><a href="/tags/<%= tag.id%>/edit"> Edit!</a></p>
 
 
-<%end %>
 
-<p><a href="/tags/transactions_by_tag">See purchases by tag!</a></p>
+
+<table class="table-fill">
+
+  <thead>
+    <tr>
+      <th class="text-left">Tag</th>
+      <th class="text-left">New</th>
+      <th class="text-left">Edit</th>
+      <th class="text-left">Delete</th>
+    </tr>
+  </thead>
+
+  <!-- can we put a sum variable that calculates the total.. -->
+  <%for tag in @tags %>
+
+  <td class="text-left"><%= tag.name%></td>    
+
+  <td class="text-left"><a href="/tags/new">new!</a>
+
+  <td class="text-left"><a href="/tags/<%= tag.id%>/edit">edit!</a>
+
+  <td class="text-left"><a href="/tags/<%= tag.id%>/delete"> delete!</a></td>
+  </tr>
+
+  <%end %>
+
+
+</table>
+
+
 
