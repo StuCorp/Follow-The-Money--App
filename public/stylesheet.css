@@ -22,6 +22,8 @@ td a {
 
 body {
   background-color: #FFF;
+  background-image: url("/images/pound_coin.png");
+  opacity: 0.95;
 }
 /*
 menu-container
