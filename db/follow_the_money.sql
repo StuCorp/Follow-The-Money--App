@@ -27,6 +27,6 @@ CREATE TABLE transactions (
   buy_date DATE,
   luxury BOOLEAN,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
-  tag_id INT REFERENCES tags(id),
-  provider_id INT REFERENCES providers(id)
+  tag_id INT REFERENCES tags(id) ON DELETE CASCADE,
+  provider_id INT REFERENCES providers(id) ON DELETE CASCADE
 );
