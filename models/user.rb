@@ -60,11 +60,7 @@ class User
   end
 
   def over_budget()
-    if User.budget(@budget) < 0 
-      true
-    else
-      false
-    end
+    User.budget(@budget) < 0 ? "Warning: over budget" : "" 
   end
 
 end

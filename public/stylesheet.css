@@ -4,7 +4,6 @@
   box-sizing: border-box;
   /*border: 1px dotted black;*/
   font-family: 'Roboto', sans-serif;
-  font-size: 18px; 
 }
 
 a {
@@ -24,6 +23,8 @@ body {
   background-color: #FFF;
   background-image: url("/images/pound_coin.png");
   opacity: 0.95;
+  font-size: 20px; 
+
 }
 /*
 menu-container
@@ -66,6 +67,8 @@ sub-menu*/
   flex-direction: column;
   align-items: center;
   flex: 1;
+  font-size: 16px; 
+
 }
 
 .site-title a {
@@ -95,6 +98,7 @@ sub-menu*/
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+
 }
 
 .first-row {
@@ -108,6 +112,7 @@ sub-menu*/
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  margin-bottom: 10px;
 
 }
 
@@ -133,7 +138,8 @@ sub-menu*/
 .view-menu-container{
 
   color: #fff;
-  background-color: hotpink;  /* Blue */
+  background-color: hotpink; 
+
   padding: 20px 0;
   display: flex;
   justify-content: flex-start;
@@ -171,13 +177,36 @@ sub-menu*/
   height: 150px;
 }
 
-/*.footer-one,
-.footer-three {
-  background-color: #5995DA;
-  flex: initial;
-  width: 300px;
+.over-budget {
+  color: red;
+
 }
-*/
+
+form {
+  background: -webkit-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  margin: 40px 50px;
+  position: relative;
+
+  width: 550px;
+  height: 300px;
+  /*font-family: Tahoma, Geneva, sans-serif;*/
+  font-size: 16px;
+  /*font-style: italic;*/
+  line-height: 30px;
+  font-weight: bold;
+  color: #09C;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  /*-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);*/
+}
+
 
 
 /*
@@ -189,7 +218,7 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
   body {
     background-color: #badaff;
     font-family: "Roboto", helvetica, arial, sans-serif;
-    font-size: 16px;
+
     font-weight: 400;
     text-rendering: optimizeLegibility;
 
