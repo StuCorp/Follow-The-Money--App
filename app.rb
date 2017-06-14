@@ -7,5 +7,5 @@ require_relative 'controllers/users_controller'
 require_relative 'controllers/providers_controller'
 
 get '/' do
-  erb(:index)
+  redirect to '/transactions'
 end

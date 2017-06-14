@@ -31,7 +31,7 @@
   <td class="text-left"><%=transaction_info.transaction_luxury == 't'? "\u{2714}" : ""
     %></td>
 
-    <td class="text-left">£<%='%.2f'%((transaction_info.transaction_cost.to_f)/100)%></td>
+    <td class="text-left">£<%=TransactionInfo.format_pennies(transaction_info.transaction_cost)%></td>
     <%total += transaction_info.transaction_cost%>
     
 
@@ -40,7 +40,7 @@
 <%end %>
 <!-- total spent -->
 <tr>
-  <td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td class="text-left"/><td/>
+  <td/><td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td class="text-left"/>
 </tr>
 
 
