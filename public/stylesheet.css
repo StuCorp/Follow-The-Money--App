@@ -222,8 +222,7 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
     border-radius:3px;
     border-collapse: collapse;
     height: 320px;
-    margin: auto;
-    margin-top: 40px;
+    margin: 40px 200px;
     max-width: 600px;
     padding:5px;
     width: 100%;
@@ -309,6 +308,8 @@ https://codepen.io/anon/pen/awZKoN?editors=1100*/
     font-size:18px;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
+    /*width:1%;*/
+    white-space:nowrap;
 
   }
 
