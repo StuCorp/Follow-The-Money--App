@@ -1,6 +1,7 @@
 # Follow the Money 
 
-Budgeting web app written in Ruby with Sinatra, using a PostgreSQL databse and a HTML5/CSS3 front-end, built in the MVC design pattern. Set a monthly budget, add items as as you purchase them, keep track of spending across time, product type, vendor and necessity, and receiving warning when exceeding budget. 
+Budgeting web app written in Ruby, using Sinatra web framework, a PostgreSQL database and a HTML5/CSS3 front-end, built in the MVC design pattern. 
+* Set a monthly budget, add items as you purchase them, keep track of spending across time, product type, vendor and necessity, and receive warning when exceeding budget. 
 
 <img width="1254" alt="screen shot 2017-08-21 at 22 06 24" src="https://user-images.githubusercontent.com/27961805/31953420-0a8bd6b6-b8db-11e7-8728-a48d722ddef8.png">
 
