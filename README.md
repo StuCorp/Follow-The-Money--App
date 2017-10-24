@@ -38,6 +38,8 @@ new tab
 
 * Table adapted from https://codepen.io/anon/pen/awZKoN?editors=1100*/ 
 
+## Screenshots
+
 ### Item tags
 <img width="1254" alt="screen shot 2017-08-21 at 22 06 24" src="https://user-images.githubusercontent.com/27961805/31953421-0ab7c096-b8db-11e7-8b6a-0670c075c093.png">
 
@@ -48,5 +50,5 @@ new tab
 <img width="1254" alt="screen shot 2017-08-21 at 22 06 24" src="https://user-images.githubusercontent.com/27961805/31953417-0a3d4794-b8db-11e7-97f1-576908cfe1c4.png">
 
 ### New transaction stored in database
-<img width="1254" alt="screen shot 2017-08-21 at 22 06 24" src="">
+<img width="1254" alt="screen shot 2017-08-21 at 22 06 24" src="https://user-images.githubusercontent.com/27961805/31953418-0a565644-b8db-11e7-8b0d-5fea32603ec9.png">
 
