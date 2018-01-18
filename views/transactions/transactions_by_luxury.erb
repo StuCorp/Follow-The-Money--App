@@ -43,9 +43,9 @@
 <%end %>
 <!-- total spent -->
 <tr>
-  <td/><td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td/>
+  <td/><td/><td/><td/><td class="text-left">Total spend: </td><td>£<%=total>0 ? TransactionInfo.format_pennies(total) : total%></td><td class="text-left"/>
 </tr><tr>
-  <td/><td/><td/><td/><td class="text-left">Total luxury spending: </td><td>£<%=TransactionInfo.format_pennies(lux_total)%></td><td/>
+  <td/><td/><td/><td/><td class="text-left">Total luxury spending: </td><td>£<%=lux_total>0 ? TransactionInfo.format_pennies(lux_total) : lux_total%><td/>
 </tr>
 
 

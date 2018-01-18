@@ -9,6 +9,7 @@ Budgeting web app written in Ruby, using Sinatra web framework, a PostgreSQL dat
 
 * Clone the project
 * in terminal:
+- createdb follow_the_money
 - psql -d follow_the_money -f db/follow_the_money.sql
 - ruby db/seeds.rb
 - psql follow_the_money

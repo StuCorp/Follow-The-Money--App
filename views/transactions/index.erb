@@ -35,6 +35,8 @@
   <!-- can we put a sum variable that calculates the total.. -->
   <% total = 0%>
 
+
+
   <%for transaction_info in @transaction_infos %>
 
   <td class="text-left"><%=transaction_info.buy_date%></td>
@@ -58,7 +60,7 @@
 <%end %>
 <!-- total spent -->
 <tr>
-  <td/><td/><td/><td/><td class="text-left">Total: </td><td>£<%=TransactionInfo.format_pennies(total)%></td><td class="text-left"/>
+  <td/><td/><td/><td/><td class="text-left">Total spend: </td><td>£<%=total>0 ? TransactionInfo.format_pennies(total) : total%></td><td class="text-left"/>
 </tr>
 <!-- budget left: -->
 <tr>
